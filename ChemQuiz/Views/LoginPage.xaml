@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:Material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
+             xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
+             xmlns:controls="clr-namespace:Flex.Controls;assembly=Flex"
+             xmlns:iOsSpecific="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             iOsSpecific:Page.PrefersStatusBarHidden="False"
+             x:Class="ChemQuiz.Views.LoginPage">
+    <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <Image Source="background_login" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" Aspect="AspectFill"/>
+        <ScrollView AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
+            <StackLayout>
+                <Label Text="Photo by Hans Reniers on Unsplash"/>
+                <forms:AnimationView 
+                    Animation="user.json" 
+                    Loop="True" 
+                    AutoPlay="True"
+                    HeightRequest="{x:OnPlatform Default='100', iOS='110'}"
+                    Speed="0.7"
+                    Margin="0,80,0,50"                   
+                    WidthRequest="300"
+                    VerticalOptions="Center" 
+                    HorizontalOptions="Center" />
+                <Material:MaterialTextField 
+                    Placeholder="Usuário"
+                    VerticalOptions="Center"
+                    InputType="Email"
+                    TextColor="White"
+                    LeadingIcon="account"
+                    PlaceholderColor="White"
+                    LeadingIconTintColor="White"
+                    TintColor="White"
+                    BackgroundColor="Transparent" />
+                <Material:MaterialTextField 
+                    Placeholder="Senha"
+                    Margin="0,-20,0,0"
+                    VerticalOptions="Center"
+                    InputType="Password"
+                    TextColor="White"
+                    PlaceholderColor="White"
+                    LeadingIcon="lock"
+                    ErrorColor="White"
+                    LeadingIconTintColor="White"
+                    TintColor="White"
+                    BackgroundColor="Transparent" />
+                <StackLayout HorizontalOptions="End" Padding="10"  Margin="0,-22,5,0">
+                    <Label Text="Esqueceu sua senha?"
+                           TextColor="White"
+                           FontFamily="rimouski.ttf#rimouski"
+                           HorizontalTextAlignment="End"/>
+                </StackLayout>
+
+                <controls:FlexButton
+                       HorizontalOptions="FillAndExpand"
+                       HeightRequest="41"
+                       Margin="75,8,75,0"
+                       CornerRadius="10"
+                       Text="Entrar" 
+                       FontFamily="rimouski.ttf#rimouski"
+                       FontAttributes="Bold,Italic"
+                       ForegroundColor="White"
+                       HighlightForegroundColor="#49516F"
+                       BackgroundColor="#3949ab"
+                       HighlightBackgroundColor="#8EA4D2"
+                       Clicked="OnEntrarButtonClicked"/>
+                <Label Text="Ou"
+                       TextColor="White"
+                       Margin="{x:OnPlatform Default='0,0,0,15', iOS='0,0,0,25'}"
+                       FontSize="{x:OnPlatform Default='15', iOS='20'}"
+                       FontFamily="rimouski.ttf#rimouski"
+                       HorizontalTextAlignment="Center"
+                       VerticalOptions="EndAndExpand"/>
+
+                <controls:FlexButton
+                    HorizontalOptions="FillAndExpand"
+                    HeightRequest="41"
+                    Margin="75,-10,75,0"
+                    CornerRadius="10"
+                    Text=" Entrar com Google" 
+                    Icon="icon_google"
+                    FontFamily="rimouski.ttf#rimouski"
+                    FontAttributes="Bold,Italic"
+                    ForegroundColor="White"
+                    HighlightForegroundColor="#49516F"
+                    BackgroundColor="#f44336"
+                    HighlightBackgroundColor="#8EA4D2"/>
+
+                <StackLayout VerticalOptions="EndAndExpand">
+                    <ContentView HeightRequest="1"
+                                 Margin="0,0,0,10"
+                                 BackgroundColor="White"/>
+                    <Label Text="Novo por aqui? Cadastre-se"
+                           TextColor="White"
+                           Margin="0,0,0,10"
+                           FontFamily="rimouski.ttf#rimouski"
+                           HorizontalTextAlignment="Center"
+                           VerticalOptions="EndAndExpand"/>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding SignUpCommand}"/>
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </AbsoluteLayout>
+    <!--Photo by Hans Reniers on Unsplash-->
+</ContentPage>

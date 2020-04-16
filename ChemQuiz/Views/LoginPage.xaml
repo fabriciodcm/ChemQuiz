@@ -9,9 +9,10 @@
              xmlns:controls="clr-namespace:Flex.Controls;assembly=Flex"
              xmlns:iOsSpecific="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
              iOsSpecific:Page.PrefersStatusBarHidden="False"
+             iOsSpecific:Page.UseSafeArea="True"
              x:Class="ChemQuiz.Views.LoginPage">
     <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-        <Image Source="background_login" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" Aspect="AspectFill"/>
+        <Image Source="background_login.jpg" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" Aspect="AspectFill"/>
         <ScrollView AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
             <StackLayout>
                 <Label Text="Photo by Hans Reniers on Unsplash"/>

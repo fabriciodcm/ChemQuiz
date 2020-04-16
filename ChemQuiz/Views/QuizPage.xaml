@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="ChemQuiz.Views.QuizPage">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="180"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="100"/>
+            </Grid.RowDefinitions>
+
+            <Label 
+                BackgroundColor="Blue"
+                FontSize="Title"
+                Text="Qual é a reação entre o ácido clorídrico e a base X?"
+                Grid.Row="0"/>
+            <FlexLayout 
+                BackgroundColor="Red"
+                Grid.Row="1"
+                Direction="Column"
+                JustifyContent="SpaceEvenly">
+                <Button Text="Resposta 1"></Button>
+                <Button Text="Resposta 2"></Button>
+                <Button Text="Resposta 3"></Button>
+                <Button Text="Resposta 4"></Button>
+            </FlexLayout>
+            <Button 
+                Text="Confirmar"
+                BackgroundColor="Green"
+                Grid.Row="2"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

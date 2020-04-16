@@ -15,7 +15,6 @@
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
-    <AndroidUseLatestPlatformSdk>false</AndroidUseLatestPlatformSdk>
     <TargetFrameworkVersion>v9.0</TargetFrameworkVersion>
     <AndroidEnableSGenConcurrent>true</AndroidEnableSGenConcurrent>
     <AndroidUseAapt2>true</AndroidUseAapt2>
@@ -60,7 +59,13 @@
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     <PackageReference Include="Xamarin.Essentials" Version="1.5.2" />
     <PackageReference Include="Xamarin.HotReload">
-      <Version>2.0.4</Version>
+      <Version>2.0.7</Version>
+    </PackageReference>
+    <PackageReference Include="XF.Material">
+      <Version>1.5.0</Version>
+    </PackageReference>
+    <PackageReference Include="Com.Airbnb.Xamarin.Forms.Lottie">
+      <Version>3.0.4</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
@@ -69,7 +74,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="Assets\user.json" />
     <AndroidAsset Include="Assets\rimouski.ttf" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
@@ -78,6 +82,7 @@
     <AndroidResource Include="Resources\baseline_account_box_black_24pt.xcassets\baseline_account_box_black_24pt.imageset\Contents.json" />
     <AndroidResource Include="Resources\baseline_account_box_black_36pt.xcassets\baseline_account_box_black_36pt.imageset\Contents.json" />
     <AndroidResource Include="Resources\baseline_account_box_black_48pt.xcassets\baseline_account_box_black_48pt.imageset\Contents.json" />
+    <AndroidAsset Include="Assets\user.json" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Tabbar.xml" />

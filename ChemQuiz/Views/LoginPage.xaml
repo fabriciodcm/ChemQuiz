@@ -21,10 +21,10 @@
                     Loop="True" 
                     AutoPlay="True"
                     HeightRequest="{x:OnPlatform Default='100', iOS='110'}"
-                    Speed="0.7"
+                    Speed="0.50"
                     Margin="0,80,0,50"                   
                     WidthRequest="300"
-                    VerticalOptions="Center" 
+                    VerticalOptions="Center"  
                     HorizontalOptions="Center" />
                 <Material:MaterialTextField 
                     Placeholder="Usuário"

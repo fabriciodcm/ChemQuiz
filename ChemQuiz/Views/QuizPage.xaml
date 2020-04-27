@@ -3,35 +3,49 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:input="clr-namespace:Plugin.InputKit.Shared.Controls;assembly=Plugin.InputKit"
              mc:Ignorable="d"
-             x:Class="ChemQuiz.Views.QuizPage">
+             x:Class="ChemQuiz.Views.QuizPage"
+             Visual="Material">
     <ContentPage.Content>
         <Grid>
+            
             <Grid.RowDefinitions>
-                <RowDefinition Height="180"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="160"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="100"/>
             </Grid.RowDefinitions>
-
+            <FlexLayout
+                Direction="RowReverse"
+                Grid.Row="0">
+                <Image Source="coin.png"/>
+                <Label
+                    Text="1231"
+                    TextColor="Gray"
+                    FontSize="Medium"
+                    VerticalTextAlignment="End"
+                />
+            </FlexLayout>
             <Label 
-                BackgroundColor="Blue"
                 FontSize="Title"
                 Text="Qual é a reação entre o ácido clorídrico e a base X?"
-                Grid.Row="0"/>
-            <FlexLayout 
-                BackgroundColor="Red"
                 Grid.Row="1"
+                Margin="10,0,0,0"/>
+            <FlexLayout 
+                Grid.Row="2"
                 Direction="Column"
-                JustifyContent="SpaceEvenly">
-                <Button Text="Resposta 1"></Button>
-                <Button Text="Resposta 2"></Button>
-                <Button Text="Resposta 3"></Button>
-                <Button Text="Resposta 4"></Button>
+                JustifyContent="SpaceEvenly"
+                Margin="10,0,0,0">
+                <input:CheckBox Text="Resposta 1" Key="1" IsChecked="False" Type="Cross"/>
+                <input:CheckBox Text="Resposta 2" Key="2" IsChecked="False" Type="Cross"/>
+                <input:CheckBox Text="Resposta 3" Key="3" IsChecked="False" Type="Cross"/>
+                <input:CheckBox Text="Resposta 4" Key="4" IsChecked="False" Type="Cross"/>
             </FlexLayout>
             <Button 
                 Text="Confirmar"
-                BackgroundColor="Green"
-                Grid.Row="2"/>
+                BackgroundColor="LightGray"
+                Grid.Row="3"/>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

@@ -17,6 +17,7 @@ namespace ChemQuiz.Droid
 
             base.OnCreate(savedInstanceState);
 
+            Plugin.InputKit.Platforms.Droid.Config.Init(this, savedInstanceState);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             Xamarin.Forms.Forms.Init(this, savedInstanceState);
 

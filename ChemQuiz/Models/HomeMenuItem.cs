@@ -7,7 +7,8 @@ namespace ChemQuiz.Models
     public enum MenuItemType
     {
         Browse,
-        About
+        About,
+        Play
     }
     public class HomeMenuItem
     {

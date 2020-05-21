@@ -1,9 +1,11 @@
 ﻿using Android.App;
+using Android.Content;
 using Android.Content.PM;
 using Android.OS;
 using Android.Runtime;
 using ChemQuez.Droid;
 using Lottie.Forms.Droid;
+using Microsoft.Identity.Client;
 
 namespace ChemQuiz.Droid
 {
@@ -24,12 +26,19 @@ namespace ChemQuiz.Droid
             XF.Material.Droid.Material.Init(this, savedInstanceState);
             AnimationViewRenderer.Init();
             LoadApplication(new App());
+            App.UIParent = this;
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
             Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
 
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
+
+        protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
+        {
+            base.OnActivityResult(requestCode, resultCode, data);
+            AuthenticationContinuationHelper.SetAuthenticationContinuationEventArgs(requestCode, resultCode, data);
         }
     }
 }

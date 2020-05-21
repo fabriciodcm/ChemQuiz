@@ -6,6 +6,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 using ChemQuiz.Models;
+using Microsoft.Identity.Client;
 
 namespace ChemQuiz.Views
 {
@@ -15,13 +16,16 @@ namespace ChemQuiz.Views
     public partial class MainPage : MasterDetailPage
     {
         Dictionary<int, NavigationPage> MenuPages = new Dictionary<int, NavigationPage>();
-        public MainPage()
+        AuthenticationResult authenticationResult;
+        public MainPage(AuthenticationResult authenticationResult)
         {
             InitializeComponent();
 
             MasterBehavior = MasterBehavior.Popover;
 
             MenuPages.Add((int)MenuItemType.Browse, (NavigationPage)Detail);
+
+            this.authenticationResult = authenticationResult;
         }
 
         public async Task NavigateFromMenu(int id)

@@ -5,8 +5,8 @@
             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
             mc:Ignorable="d"
             xmlns:views="clr-namespace:ChemQuiz.Views"
-            x:Class="ChemQuiz.Views.MainPage">
-
+            x:Class="ChemQuiz.Views.MainPage"
+            NavigationPage.HasNavigationBar="false">
     <MasterDetailPage.Master>
         <views:MenuPage />
     </MasterDetailPage.Master>

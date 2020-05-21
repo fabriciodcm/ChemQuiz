@@ -4,6 +4,8 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using ChemQuiz.Services;
 using ChemQuiz.Views;
+using Microsoft.Identity.Client;
+using ChemQuiz.Models;
 
 namespace ChemQuiz
 {
@@ -16,9 +18,20 @@ namespace ChemQuiz
             DeviceInfo.Platform == DevicePlatform.Android ? "http://10.0.2.2:5000" : "http://localhost:5000";
         public static bool UseMockDataStore = true;
 
+
+        //Azure AD b2c
+        public static IPublicClientApplication AuthenticationClient { get; private set; }
+        public static object UIParent { get; set; } = null;
+
         public App()
         {
             InitializeComponent();
+
+            AuthenticationClient = PublicClientApplicationBuilder.Create(Constants.ClientId)
+            .WithIosKeychainSecurityGroup(Constants.IosKeychainSecurityGroups)
+            .WithB2CAuthority(Constants.AuthoritySignin)
+            .WithRedirectUri($"msal{Constants.ClientId}://auth")
+            .Build();
 
             if (UseMockDataStore)
                 DependencyService.Register<MockDataStore>();
@@ -31,7 +44,7 @@ namespace ChemQuiz
 
             XF.Material.Forms.Material.Init(this);
 
-            MainPage = new LoginPage();
+            MainPage = new NavigationPage(new LoginPage());
         }
 
         protected override void OnStart()

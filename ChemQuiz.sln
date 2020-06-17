@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChemQuiz.iOS", "ChemQuiz.iO
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChemQuiz", "ChemQuiz\ChemQuiz.csproj", "{9FBC2EA3-1F96-4122-A055-C07EB2DE7D18}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChemQuez.MobileAppService", "ChemQuiz.MobileAppService\ChemQuez.MobileAppService.csproj", "{9D30CB0F-D8B2-48AF-8677-13CE91CFC9BA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChemQuiz.MobileAppService", "ChemQuiz.MobileAppService\ChemQuiz.MobileAppService.csproj", "{9D30CB0F-D8B2-48AF-8677-13CE91CFC9BA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

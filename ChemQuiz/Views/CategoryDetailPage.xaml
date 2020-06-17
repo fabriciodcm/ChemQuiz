@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             x:Class="ChemQuiz.Views.CategoryDetailPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <pancake:PancakeView
+                    BackgroundColor="White"
+                    Margin="1,10,1,10"
+                    BorderThickness="1"
+                    CornerRadius="25"
+                    HeightRequest="50">
+                <StackLayout Orientation="Horizontal">
+                    <Image
+                            HeightRequest="25"
+                            HorizontalOptions="Start"
+                            Source="search"
+                            VerticalOptions="CenterAndExpand"
+                            WidthRequest="25" />
+                    <Entry
+                            ClearButtonVisibility="WhileEditing"
+                            FontSize="18"
+                            HorizontalOptions="FillAndExpand"
+                            Keyboard="Text"
+                            Placeholder="Pesquisar "
+                            PlaceholderColor="#99A1B3"
+                            TextColor="#484848" />
+                </StackLayout>
+            </pancake:PancakeView>
+            <ScrollView 
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand">
+                <ListView
+                    x:Name="GamesListView"
+                    ItemsSource="{Binding GroupedGames}"
+                    IsGroupingEnabled="True"
+                    GroupDisplayBinding="{Binding Key}"
+                    GroupShortNameBinding="{Binding Key}"
+                    >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextCell Text="{Binding GameName}" Detail="{Binding GameDescription}"></TextCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -149,6 +149,9 @@
     <PackageReference Include="Xamarin.Forms.InputKit">
       <Version>3.2.2</Version>
     </PackageReference>
+    <PackageReference Include="Xamarin.Forms.PancakeView">
+      <Version>1.4.2</Version>
+    </PackageReference>
     <PackageReference Include="Xamarin.HotReload">
       <Version>2.0.7</Version>
     </PackageReference>
@@ -189,5 +192,8 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\coin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\search.png" />
   </ItemGroup>
 </Project>

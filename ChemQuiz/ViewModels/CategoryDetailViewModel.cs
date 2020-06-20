@@ -15,6 +15,22 @@ namespace ChemQuiz.ViewModels
         private ObservableCollection<Game> Games { get; set; }
         public IEnumerable<QuizGroup<char, Game>> GroupedGames { get; set; }
         public Command LoadItemsCommand { get; set; }
+        public Command FilterItemsCommand { get; set; }
+
+        string FilterParam;
+        public string filterParam
+        {
+            get { return FilterParam; }
+            set
+            {
+                FilterParam = value;
+                OnPropertyChanged();
+                FilterItemsCommand = new Command(async () => await ExecuteFilterItemsCommand(FilterParam));
+                FilterItemsCommand.Execute(FilterParam);
+                OnPropertyChanged(nameof(GroupedGames));
+
+            }
+        }
 
         public CategoryDetailViewModel(Category category)
         {
@@ -56,10 +72,32 @@ namespace ChemQuiz.ViewModels
                 IsBusy = false;
             }
         }
+
+        async Task ExecuteFilterItemsCommand(string filter)
+        {
+            if (IsBusy)
+                return;
+
+            IsBusy = true;
+
+            try
+            {
+                GroupedGames = ListGameGroups(filter);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+            finally
+            {
+                IsBusy = false;
+            }
+        }
+
         public IEnumerable<QuizGroup<char, Game>> ListGameGroups(string filter = "")
         {
             IEnumerable<Game> filteredGames = this.Games;
-            if (!String.IsNullOrEmpty(filter))
+            if (!String.IsNullOrEmpty(filter) && filter.Length >= 3)
             {
                 filteredGames = this.Games.Where(
                     x => x.GameName.ToLower().Contains(filter.ToLower())

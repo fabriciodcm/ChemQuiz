@@ -28,7 +28,9 @@
                             Keyboard="Text"
                             Placeholder="Pesquisar "
                             PlaceholderColor="#99A1B3"
-                            TextColor="#484848" />
+                            TextColor="#484848"
+                            Text="{Binding filterParam}"
+                        />
                 </StackLayout>
             </pancake:PancakeView>
             <ScrollView 

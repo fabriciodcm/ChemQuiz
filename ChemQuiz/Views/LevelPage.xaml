@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="ChemQuiz.Views.LevelPage">
+    <ContentPage.Content>
+        <ScrollView 
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand">
+            <ListView
+                    x:Name="LevelsListView"
+                    ItemsSource="{Binding UnlockedLevels}"
+                    ItemSelected="OnItemSelected"
+                    >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <FlexLayout Direction="Row">
+                                <Image Source="{Binding LevelIcon}"/>
+                                <Label Text="{Binding LevelDescription}" HorizontalOptions="Center"
+                                        VerticalOptions="Center" FontAttributes="Bold" FontSize="Small" 
+                                        TextColor="LightGray" />
+                            </FlexLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

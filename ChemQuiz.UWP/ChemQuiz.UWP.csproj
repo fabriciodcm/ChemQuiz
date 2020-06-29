@@ -106,9 +106,13 @@
   <ItemGroup>
     <Content Include="account.png" />
     <Content Include="Assets\background_login.jpg" />
+    <Content Include="level1.png" />
+    <Content Include="level2.png" />
+    <Content Include="level3.png" />
     <Content Include="lock.png" />
     <BundleResource Include="coin.png" />
     <BundleResource Include="background_login.jpg" />
+    <Content Include="lockedlevel.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LargeTile.scale-100.png" />
     <Content Include="Assets\LargeTile.scale-200.png" />

@@ -39,6 +39,7 @@
                 <ListView
                     x:Name="GamesListView"
                     ItemsSource="{Binding GroupedGames}"
+                    ItemSelected="OnItemSelected"
                     IsGroupingEnabled="True"
                     GroupDisplayBinding="{Binding Key}"
                     GroupShortNameBinding="{Binding Key}"

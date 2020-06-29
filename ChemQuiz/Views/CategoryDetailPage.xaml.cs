@@ -36,13 +36,9 @@ namespace ChemQuiz.Views
         async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
         {
             var game = args.SelectedItem as Game;
-            if (category == null)
+            if (game == null)
                 return;
-
-            //Navega para a página dos cursos
-            //await Navigation.PushAsync(new CategoryDetailPage(category));
-
-            // Manually deselect item.
+            await Navigation.PushAsync(new LevelPage(game));
             GamesListView.SelectedItem = null;
         }
     }

@@ -39,12 +39,30 @@ namespace ChemQuiz.ViewModels
             LoadItemsCommand.Execute(category.CategoryId);
         }
 
-        protected ObservableCollection<Game> getCategories(int CategoryID)
+        protected ObservableCollection<Game> getCategoryGames(int CategoryID)
         {
             //Consome API
             //Mock de teste
             ObservableCollection<Game> games = new ObservableCollection<Game>();
-            games.Add(new Game() { GameName = "Reações Ácido-Base", GameDescription = "Definições básicas de reações Ácido-Base." });
+            var levels = new List<Level>();
+            levels.Add(new Level()
+            {
+                LevelNumber = 1,
+                LevelLesson = "Utilizando-se da teoria ácido-base de Arrhenius (com íons positivos de hidrogênio e íons negativos de hidroxila liberados em meio aquoso), numa reação de neutralização (total ou parcial) há sempre formação de moléculas de água líquida. Exemplo : HX(aq) + YOH(aq) -> YX(aq) + H2O(l)",
+                isFinished = false
+            });
+            levels.Add(new Level()
+            {
+                LevelNumber = 2,
+                LevelLesson = "Utilizando-se da teoria ácido-base de Arrhenius (com íons positivos de hidrogênio e íons negativos de hidroxila liberados em meio aquoso), numa reação de neutralização (total ou parcial) há sempre formação de moléculas de água líquida. Exemplo : HX(aq) + YOH(aq) -> YX(aq) + H2O(l)",
+                isFinished = false
+            });
+            games.Add(new Game()
+            {
+                GameName = "Reações Ácido-Base",
+                GameDescription = "Definições básicas de reações Ácido-Base.",
+                Levels = levels
+            });
             games.Add(new Game() { GameName = "Química orgânica", GameDescription = "Química orgânica." });
             games.Add(new Game() { GameName = "Química inorgânica", GameDescription = "Química inorgânica." });
             return games;
@@ -60,7 +78,7 @@ namespace ChemQuiz.ViewModels
             try
             {
                 Games.Clear();
-                Games = getCategories(CategoryId);
+                Games = getCategoryGames(CategoryId);
                 GroupedGames = ListGameGroups();
             }
             catch (Exception ex)

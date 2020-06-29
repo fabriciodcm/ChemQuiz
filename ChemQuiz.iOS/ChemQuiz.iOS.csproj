@@ -196,4 +196,16 @@
   <ItemGroup>
     <BundleResource Include="Resources\search.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\lockedlevel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\level1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\level2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\level3.png" />
+  </ItemGroup>
 </Project>

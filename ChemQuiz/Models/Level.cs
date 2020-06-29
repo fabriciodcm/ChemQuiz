@@ -8,7 +8,11 @@ namespace ChemQuiz.Models
     {
         public int LevelNumber { get; set; }
 
-        public bool LevelFinished { get; set; }
+        public bool isFinished { get; set; }
+
+        public string LevelIcon { get; set; }
+
+        public string LevelDescription { get; set; }
 
         public string LevelLesson { get; set; }
         public List<Quiz> LevelQuizList { get; set; }

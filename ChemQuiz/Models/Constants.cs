@@ -15,9 +15,10 @@ namespace ChemQuiz.Models
 
         public static User LoggedUser = null;
 
-        static readonly string[] scopes = { ""
-            //"https://FabricioDocemaB2C.onmicrosoft.com/chemquiz/read.demo" ,
-            //"https://FabricioDocemaB2C.onmicrosoft.com/chemquiz/user_impersonation" ,
+        static readonly string[] scopes = { 
+            "https://FabricioDocemaB2C.onmicrosoft.com/chemquiz/read.demo",
+            "https://FabricioDocemaB2C.onmicrosoft.com/chemquiz/user_impersonation",
+            "https://FabricioDocemaB2C.onmicrosoft.com/chemquiz/read"
         };
 
         static readonly string authorityBase = $"https://{tenantName}.b2clogin.com/tfp/{tenantId}/";

@@ -33,14 +33,13 @@ namespace ChemQuiz.Views
         async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
         {
             var level = args.SelectedItem as Level;
-            if (level == null)
+            // Manually deselect item.
+            LevelsListView.SelectedItem = null;
+            if (level == null || level.LevelDescription.Contains("Bloqueado"))
                 return;
 
             //Navega para a página dos cursos
-            //await Navigation.PushAsync(new CategoryDetailPage(category));
-
-            // Manually deselect item.
-            LevelsListView.SelectedItem = null;
+            await Navigation.PushAsync(new QuizPage());
         }
     }
 }

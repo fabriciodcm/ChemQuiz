@@ -2,8 +2,11 @@
 using Microsoft.Identity.Client;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Security;
 using System.Threading.Tasks;
 using Xamarin.Forms;
@@ -21,7 +24,7 @@ namespace ChemQuiz.Views
             try
             {
                 // Look for existing account
-                IEnumerable<IAccount> accounts = await App.AuthenticationClient.GetAccountsAsync();
+               /* IEnumerable<IAccount> accounts = await App.AuthenticationClient.GetAccountsAsync();
 
                 AuthenticationResult result = await App.AuthenticationClient
                     .AcquireTokenSilent(Constants.Scopes, accounts.FirstOrDefault())
@@ -41,7 +44,7 @@ namespace ChemQuiz.Views
 
                 Application.Current.MainPage = new MainPage(result);
                 await (Application.Current.MainPage as MasterDetailPage)
-                    .Detail.Navigation.PushAsync(new ItemsPage());
+                    .Detail.Navigation.PushAsync(new ItemsPage()); */
             }
             catch
             {
@@ -64,6 +67,30 @@ namespace ChemQuiz.Views
                 var jwt = result.IdToken;
                 var handler = new JwtSecurityTokenHandler();
                 var token = handler.ReadJwtToken(jwt);
+                #region Test api authentication
+                try {
+                    var baseAddr = new Uri("https://chemquizapi.azurewebsites.net/");
+                    var client = new HttpClient { BaseAddress = baseAddr };
+
+                    var reviewUri = new Uri(baseAddr, "api/item");
+
+                    var request = new HttpRequestMessage(HttpMethod.Get, reviewUri);
+                    request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", result.AccessToken);
+
+                    var response = await client.SendAsync(request);
+                    //linha abaixo gera erro caso nao retorne na faixa 400
+                    //response.EnsureSuccessStatusCode();
+
+                    var reviewJson = await response.Content.ReadAsStringAsync();
+
+                    //await DisplayAlert("Alert", reviewJson, "OK");
+
+                }
+                catch (Exception ex) {
+                    Debug.WriteLine(ex);
+                }
+
+                #endregion
 
                 Constants.LoggedUser = new User() { 
                     UserId = token.Claims.ToArray()[8].Value,

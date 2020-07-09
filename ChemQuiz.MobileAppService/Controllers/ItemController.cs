@@ -4,7 +4,7 @@ using System.Linq;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ChemQuez.Models;
-
+using Microsoft.AspNetCore.Authorization;
 namespace ChemQuez.Controllers
 {
     [Route("api/item")]
@@ -20,6 +20,7 @@ namespace ChemQuez.Controllers
 
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
+        [Authorize]
         public ActionResult<IEnumerable<Item>> List()
         {
             return ItemRepository.GetAll().ToList();
@@ -28,6 +29,8 @@ namespace ChemQuez.Controllers
         [HttpGet("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        [Authorize]
         public ActionResult<Item> GetItem(string id)
         {
             Item item = ItemRepository.Get(id);

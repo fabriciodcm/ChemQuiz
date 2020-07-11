@@ -119,8 +119,8 @@ namespace ChemQuiz.Views
 
         async void OnEntrarTesteButtonClicked(object sender, EventArgs e) {
             Application.Current.MainPage = new MainPage(null);
-            await (Application.Current.MainPage as MasterDetailPage)
-                .Detail.Navigation.PushAsync(new ItemsPage());
+            //await (Application.Current.MainPage as MasterDetailPage)
+            //    .Detail.Navigation.PushAsync(new ItemsPage());
         }
         async Task<AuthenticationResult> OnForgotPassword()
         {

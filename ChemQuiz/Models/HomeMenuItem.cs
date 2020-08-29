@@ -8,7 +8,8 @@ namespace ChemQuiz.Models
     {
         Browse,
         About,
-        Play
+        Play,
+        Avatar
     }
     public class HomeMenuItem
     {

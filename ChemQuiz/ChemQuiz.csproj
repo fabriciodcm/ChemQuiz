@@ -19,6 +19,32 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Resources\Avatars\013-boy-16.png" />
+    <None Remove="Resources\Avatars\020-girl-4.png" />
+    <None Remove="Resources\Avatars\027-boy-8.png" />
+    <None Remove="Resources\Avatars\028-girl-3.png" />
+    <None Remove="Resources\Avatars\031-girl-2.png" />
+    <None Remove="Resources\Avatars\035-boy-6.png" />
+    <None Remove="Resources\Avatars\037-girl-1.png" />
+    <None Remove="Resources\Avatars\038-athlete.png" />
+    <None Remove="Resources\Avatars\040-boy-5.png" />
+    <None Remove="Resources\Avatars\049-boy-1.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Avatars\013-boy-16.png" />
+    <EmbeddedResource Include="Resources\Avatars\020-girl-4.png" />
+    <EmbeddedResource Include="Resources\Avatars\027-boy-8.png" />
+    <EmbeddedResource Include="Resources\Avatars\028-girl-3.png" />
+    <EmbeddedResource Include="Resources\Avatars\031-girl-2.png" />
+    <EmbeddedResource Include="Resources\Avatars\035-boy-6.png" />
+    <EmbeddedResource Include="Resources\Avatars\037-girl-1.png" />
+    <EmbeddedResource Include="Resources\Avatars\038-athlete.png" />
+    <EmbeddedResource Include="Resources\Avatars\040-boy-5.png" />
+    <EmbeddedResource Include="Resources\Avatars\049-boy-1.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Forms.Controls.FlexButton" Version="0.11.0" />
     <PackageReference Include="Microsoft.Identity.Client" Version="4.13.0" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.5.1" />
@@ -33,6 +59,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Views\AvatarPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\CategoriesPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

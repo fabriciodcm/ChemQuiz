@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             mc:Ignorable="d"
+             x:Class="ChemQuiz.Views.AvatarPage">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="60"/>
+            </Grid.RowDefinitions>
+            <FlexLayout
+                Direction="RowReverse"
+                Grid.Row="0">
+                <Image Source="coin.png"/>
+                <Label
+                    Text="Saldo $300"
+                    TextColor="Gray"
+                    FontSize="Medium"
+                    VerticalTextAlignment="End"
+                />
+            </FlexLayout>
+            <ScrollView 
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="Fill"
+                Margin="0,20,0,0"
+                Grid.Row="1">
+                <ListView
+                    x:Name="AvatarsListView"
+                    ItemsSource="{Binding Avatars}"
+                    ItemSelected="OnItemSelected"
+                    >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <FlexLayout Direction="Row">
+                                    <Image Source="{Binding Image}"/>
+                                    <Label Text="{Binding FormattedPrice}" HorizontalOptions="Center"
+                                        VerticalOptions="Center" FontAttributes="Bold" FontSize="Small" 
+                                        TextColor="Green" />
+                                </FlexLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </ScrollView>
+            <Button 
+                Text="Comprar" 
+                BorderWidth="1" 
+                BorderColor="CadetBlue" 
+                BackgroundColor="CadetBlue" 
+                BorderRadius="20"
+                TextColor="Black" 
+                Grid.Row="2"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

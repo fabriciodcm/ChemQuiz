@@ -22,7 +22,8 @@ namespace ChemQuiz.Views
             {
                 new HomeMenuItem {Id = MenuItemType.Browse, Title="Browse" },
                 new HomeMenuItem {Id = MenuItemType.About, Title="About" },
-                new HomeMenuItem {Id = MenuItemType.Play, Title="Jogar" }
+                new HomeMenuItem {Id = MenuItemType.Play, Title="Jogar" },
+                new HomeMenuItem {Id = MenuItemType.Avatar, Title="Avatar" }
             };
 
             ListViewMenu.ItemsSource = menuItems;

@@ -24,27 +24,28 @@ namespace ChemQuiz.Views
             try
             {
                 // Look for existing account
-               /* IEnumerable<IAccount> accounts = await App.AuthenticationClient.GetAccountsAsync();
+                /* IEnumerable<IAccount> accounts = await App.AuthenticationClient.GetAccountsAsync();
 
-                AuthenticationResult result = await App.AuthenticationClient
-                    .AcquireTokenSilent(Constants.Scopes, accounts.FirstOrDefault())
-                    .ExecuteAsync();
+                 AuthenticationResult result = await App.AuthenticationClient
+                     .AcquireTokenSilent(Constants.Scopes, accounts.FirstOrDefault())
+                     .ExecuteAsync();
 
-                var jwt = result.IdToken;
-                var handler = new JwtSecurityTokenHandler();
-                var token = handler.ReadJwtToken(jwt);
+                 var jwt = result.IdToken;
+                 var handler = new JwtSecurityTokenHandler();
+                 var token = handler.ReadJwtToken(jwt);
 
-                Constants.LoggedUser = new User()
-                {
-                    UserId = token.Claims.ToArray()[8].Value,
-                    Name = token.Claims.ToArray()[9].Value,
-                    FamilyName = token.Claims.ToArray()[10].Value,
-                    Email = token.Claims.ToArray()[11].Value,
-                };
+                 Constants.LoggedUser = new User()
+                 {
+                     UserId = token.Claims.ToArray()[8].Value,
+                     Name = token.Claims.ToArray()[9].Value,
+                     FamilyName = token.Claims.ToArray()[10].Value,
+                     Email = token.Claims.ToArray()[11].Value,
+                     Coins = 200
+                 };
 
-                Application.Current.MainPage = new MainPage(result);
-                await (Application.Current.MainPage as MasterDetailPage)
-                    .Detail.Navigation.PushAsync(new ItemsPage()); */
+                 Application.Current.MainPage = new MainPage(result);
+                 await (Application.Current.MainPage as MasterDetailPage)
+                     .Detail.Navigation.PushAsync(new ItemsPage()); */
             }
             catch
             {
@@ -93,10 +94,11 @@ namespace ChemQuiz.Views
                 #endregion
 
                 Constants.LoggedUser = new User() { 
-                    UserId = token.Claims.ToArray()[8].Value,
+                    AuthId = token.Claims.ToArray()[8].Value,
                     Name = token.Claims.ToArray()[9].Value,
                     FamilyName = token.Claims.ToArray()[10].Value,
                     Email = token.Claims.ToArray()[11].Value,
+                    Coins = 200
                 };
 
                 Application.Current.MainPage = new MainPage(result);

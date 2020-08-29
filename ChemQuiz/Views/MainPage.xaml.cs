@@ -43,6 +43,9 @@ namespace ChemQuiz.Views
                     case (int)MenuItemType.Play:
                         MenuPages.Add(id, new NavigationPage(new CategoriesPage()));
                         break;
+                    case (int)MenuItemType.Avatar:
+                        MenuPages.Add(id, new NavigationPage(new AvatarPage()));
+                        break;
                 }
             }
 

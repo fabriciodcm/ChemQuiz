@@ -19,12 +19,14 @@
             <FlexLayout
                 Direction="RowReverse"
                 Grid.Row="0">
-                <Image Source="coin.png"/>
+                <Image Source="coin.png"
+                       Margin="2,2,2,2"/>
                 <Label
-                    Text="1231"
+                    Text="$175"
                     TextColor="Gray"
                     FontSize="Medium"
                     VerticalTextAlignment="End"
+                    Margin="2,2,2,2"
                 />
             </FlexLayout>
             <Label 
@@ -44,7 +46,8 @@
             </FlexLayout>
             <Button 
                 Text="Confirmar"
-                BackgroundColor="LightGray"
+                BackgroundColor="CadetBlue"
+                BorderRadius="20"
                 Grid.Row="3"/>
         </Grid>
     </ContentPage.Content>

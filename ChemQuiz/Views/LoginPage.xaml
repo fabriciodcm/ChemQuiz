@@ -72,7 +72,7 @@
                        BackgroundColor="#3949ab"
                        HighlightBackgroundColor="#8EA4D2"
                        Clicked="OnEntrarButtonClicked"/>
-                <Label Text="Ou"
+                <!--<Label Text="Ou"
                        TextColor="White"
                        Margin="{x:OnPlatform Default='0,0,0,15', iOS='0,0,0,25'}"
                        FontSize="{x:OnPlatform Default='15', iOS='20'}"
@@ -93,18 +93,18 @@
                     HighlightForegroundColor="#49516F"
                     BackgroundColor="#f44336"
                     HighlightBackgroundColor="#8EA4D2"
-                    Clicked="OnEntrarTesteButtonClicked"/>
+                    Clicked="OnEntrarTesteButtonClicked"/>-->
 
                 <StackLayout VerticalOptions="EndAndExpand">
                     <ContentView HeightRequest="1"
                                  Margin="0,0,0,10"
                                  BackgroundColor="White"/>
-                    <Label Text="Novo por aqui? Cadastre-se"
+                    <!--<Label Text="Novo por aqui? Cadastre-se"
                            TextColor="White"
                            Margin="0,0,0,10"
                            FontFamily="rimouski.ttf#rimouski"
                            HorizontalTextAlignment="Center"
-                           VerticalOptions="EndAndExpand"/>
+                           VerticalOptions="EndAndExpand"/>-->
                     <StackLayout.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding SignUpCommand}"/>
                     </StackLayout.GestureRecognizers>

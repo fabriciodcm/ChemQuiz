@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ChemQuiz.Views.LeaderboardPage">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="80"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="30"/>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" Text="Primeiros a concluir o desafio!" TextColor="Goldenrod" HorizontalTextAlignment="Center" FontSize="Title"></Label>
+            <ListView
+                    x:Name="RankingListView"
+                    ItemsSource="{Binding Ranking}"
+                    Grid.Row="1"
+                    >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <FlexLayout Direction="Row" JustifyContent="SpaceBetween">
+                                <Image Source="{Binding Medal}" FlexLayout.Grow="0.1" />
+                                <Label Text="{Binding User.Name}" HorizontalOptions="Center"
+                                        VerticalOptions="Center" FontAttributes="Bold" FontSize="Small" 
+                                        TextColor="Black" 
+                                       FlexLayout.Grow="0.1"
+                                       />
+                                <Image Source="{Binding User.Avatar.Image}" FlexLayout.Grow="0.1" />
+                            </FlexLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -30,6 +30,11 @@ namespace ChemQuiz.Views
                 viewModel.LoadItemsCommand.Execute(null);
         }
 
+        async void Rank_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new LeaderboardPage());
+        }
+
         async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
         {
             var level = args.SelectedItem as Level;

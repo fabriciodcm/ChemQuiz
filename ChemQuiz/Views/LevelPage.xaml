@@ -5,6 +5,11 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="ChemQuiz.Views.LevelPage">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Rank" Clicked="Rank_Clicked" IconImageSource="trophy.png"/>
+    </ContentPage.ToolbarItems>
+
     <ContentPage.Content>
         <ScrollView 
                 HorizontalOptions="FillAndExpand"

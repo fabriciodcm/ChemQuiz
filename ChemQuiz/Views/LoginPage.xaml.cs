@@ -101,9 +101,7 @@ namespace ChemQuiz.Views
                     Coins = 200
                 };
 
-                Application.Current.MainPage = new MainPage(result);
-                await (Application.Current.MainPage as MasterDetailPage)
-                    .Detail.Navigation.PushAsync(new ItemsPage());
+                Application.Current.MainPage = new MainPage(null);
             }
             catch (MsalException ex)
             {

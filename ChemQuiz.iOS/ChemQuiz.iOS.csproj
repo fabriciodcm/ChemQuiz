@@ -208,4 +208,16 @@
   <ItemGroup>
     <BundleResource Include="Resources\level3.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\bronzemedal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\goldmedal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\silvermedal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\trophy.png" />
+  </ItemGroup>
 </Project>

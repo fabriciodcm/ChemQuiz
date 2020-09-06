@@ -106,6 +106,8 @@
   <ItemGroup>
     <Content Include="account.png" />
     <Content Include="Assets\background_login.jpg" />
+    <Content Include="bronzemedal.png" />
+    <Content Include="goldmedal.png" />
     <Content Include="level1.png" />
     <Content Include="level2.png" />
     <Content Include="level3.png" />
@@ -142,6 +144,8 @@
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
     <Content Include="Assets\Wide310x150Logo.scale-400.png" />
     <AndroidResource Include="search.png" />
+    <Content Include="silvermedal.png" />
+    <Content Include="trophy.png" />
     <Content Include="xamarin_logo.png" />
     <Content Include="add.png" />
     <Content Include="save.png" />

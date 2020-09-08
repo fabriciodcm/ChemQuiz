@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net.Sockets;
 using System.Text;
 
 namespace ChemQuiz.Models
@@ -9,6 +10,12 @@ namespace ChemQuiz.Models
         public Rank Rank { get; set; }
         public User User { get; set; }
         public Game Game { get; set; }
+
+        public long coins { get; set; }
+        public string Coins 
+        {
+            get { return "$" + coins; }
+        }
 
         public string Medal
         {

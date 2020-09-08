@@ -57,6 +57,7 @@ namespace ChemQuiz.ViewModels
                     }
                 },
                 Rank = Rank.First,
+                coins = 1200
             });
             ranking.Add(new Ranking()
             {
@@ -69,6 +70,7 @@ namespace ChemQuiz.ViewModels
                     }
                 },
                 Rank = Rank.Second,
+                coins = 755
             });
             ranking.Add(new Ranking()
             {
@@ -81,6 +83,7 @@ namespace ChemQuiz.ViewModels
                     }
                 },
                 Rank = Rank.Third,
+                coins = 650
             });
             
             return ranking;

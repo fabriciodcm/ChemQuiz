@@ -5,9 +5,10 @@
     <ContentPage.Content>
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="80"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="30"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="150"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="150"/>
             </Grid.RowDefinitions>
             <Label Grid.Row="0" Text="Primeiros a concluir o desafio!" TextColor="Goldenrod" HorizontalTextAlignment="Center" FontSize="Title"></Label>
             <ListView
@@ -26,6 +27,30 @@
                                        FlexLayout.Grow="0.1"
                                        />
                                 <Image Source="{Binding User.Avatar.Image}" FlexLayout.Grow="0.1" />
+                            </FlexLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Label Grid.Row="2" Text="Maiores pontuações!" TextColor="Goldenrod" HorizontalTextAlignment="Center" FontSize="Title"></Label>
+            <ListView
+                    x:Name="CoinsListView"
+                    ItemsSource="{Binding Ranking}"
+                    Grid.Row="3"
+                    >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <FlexLayout Direction="Row" JustifyContent="SpaceEvenly">
+                                <Label Text="{Binding Coins}" HorizontalOptions="Center"
+                                        VerticalOptions="Center" FontAttributes="Bold" FontSize="Small" 
+                                        TextColor="DarkGoldenrod"
+                                       />
+                                <Label Text="{Binding User.Name}" HorizontalOptions="Center"
+                                        VerticalOptions="Center" FontAttributes="Bold" FontSize="Small" 
+                                        TextColor="Black"
+                                       />
+                                <Image Source="{Binding User.Avatar.Image}" />
                             </FlexLayout>
                         </ViewCell>
                     </DataTemplate>

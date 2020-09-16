@@ -10,21 +10,28 @@ using Microsoft.Extensions.Logging;
 using ChemQuez.Models;
 using Microsoft.AspNetCore.Authentication.AzureADB2C.UI;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.EntityFrameworkCore;
 
 namespace ChemQuez.MobileAppService
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
-        {
-            Configuration = configuration;
-        }
-
         public IConfiguration Configuration { get; }
+        public IWebHostEnvironment Environment { get; }
+
+        public Startup(IConfiguration Configuration, IWebHostEnvironment Environment)
+        {
+            this.Configuration = Configuration;
+            this.Environment = Environment;
+        }
 
 
         public void ConfigureServices(IServiceCollection services)
         {
+            if (Environment.IsProduction() || Environment.IsStaging()) {
+                services.AddDbContext<ChemQuiz.API.Models.Context.AppContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("FabricioDocemaDBConnectionString")));
+            }
             services.AddAuthentication(AzureADB2CDefaults.BearerAuthenticationScheme)
                 .AddAzureADB2CBearer(options => Configuration.Bind("AzureAdB2C", options));
             services.AddControllers();

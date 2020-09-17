@@ -31,7 +31,7 @@ namespace ChemQuiz.API.Models.Context
             //    .HasForeignKey(pb => pb.BenefitId);
         }
 
-        //Exemplo de persistência
-        //public DbSet<Place> Place { get; set; }
+
+        public DbSet<Avatar> Avatar { get; set; }
     }
 }

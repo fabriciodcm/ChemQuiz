@@ -11,6 +11,8 @@ using ChemQuez.Models;
 using Microsoft.AspNetCore.Authentication.AzureADB2C.UI;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.EntityFrameworkCore;
+using ChemQuiz.API.Services;
+using ChemQuiz.API.Services.Implementations;
 
 namespace ChemQuez.MobileAppService
 {
@@ -36,6 +38,7 @@ namespace ChemQuez.MobileAppService
                 .AddAzureADB2CBearer(options => Configuration.Bind("AzureAdB2C", options));
             services.AddControllers();
             services.AddSingleton<IItemRepository, ItemRepository>();
+            services.AddScoped<IAvatarService, AvatarService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

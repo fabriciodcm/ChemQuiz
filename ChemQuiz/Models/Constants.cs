@@ -6,6 +6,7 @@ namespace ChemQuiz.Models
 {
     public static class Constants
     {
+        static readonly string APIUrl = "https://chemquizapi.azurewebsites.net/api/";
         static readonly string tenantName = "FabricioDocemaB2C";
         static readonly string tenantId = "FabricioDocemaB2C.onmicrosoft.com";
         static readonly string clientId = "dc5f8496-a025-46ea-ae59-1e72c8556225";
@@ -55,6 +56,12 @@ namespace ChemQuiz.Models
             get
             {
                 return iosKeychainSecurityGroup;
+            }
+        }
+        public static string URL
+        {
+            get {
+                return APIUrl;
             }
         }
     }

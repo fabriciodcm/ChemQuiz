@@ -53,7 +53,7 @@ namespace ChemQuiz.ViewModels
                 User = new User(){
                     Name = "João Paulo",
                     Avatar = new Avatar() {
-                        Name = "013-boy-16.png"
+                        AvatarName = "013-boy-16.png"
                     }
                 },
                 Rank = Rank.First,
@@ -66,7 +66,7 @@ namespace ChemQuiz.ViewModels
                     Name = "Maria Clara",
                     Avatar = new Avatar()
                     {
-                        Name = "020-girl-4.png"
+                        AvatarName = "020-girl-4.png"
                     }
                 },
                 Rank = Rank.Second,
@@ -79,7 +79,7 @@ namespace ChemQuiz.ViewModels
                     Name = "Fabricio",
                     Avatar = new Avatar()
                     {
-                        Name = "027-boy-8.png"
+                        AvatarName = "027-boy-8.png"
                     }
                 },
                 Rank = Rank.Third,

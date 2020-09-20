@@ -32,7 +32,7 @@ namespace ChemQuiz.ViewModels
             try
             {
                 Avatars.Clear();
-                Avatars = await getAvatars();
+                await getAvatars();
             }
             catch (Exception ex)
             {
@@ -43,13 +43,13 @@ namespace ChemQuiz.ViewModels
                 IsBusy = false;
             }
         }
-        protected async Task<ObservableCollection<Avatar>> getAvatars()
+        protected async Task getAvatars()
         {
-            ObservableCollection<Avatar> avatars;
             AvatarService service = new AvatarService();
-            var list = await service.FindAll();
-            avatars = new ObservableCollection<Avatar>(list);
-            return avatars;
+            IEnumerable<Avatar> list = await service.FindAll();
+            foreach (var av in list) {
+                Avatars.Add(av);
+            }
         }
     }
 }

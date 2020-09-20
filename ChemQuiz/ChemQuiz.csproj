@@ -19,28 +19,76 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Resources\Avatars\001-girl-10.png" />
+    <None Remove="Resources\Avatars\004-girl-8.png" />
+    <None Remove="Resources\Avatars\005-girl-7.png" />
+    <None Remove="Resources\Avatars\008-girl-6.png" />
+    <None Remove="Resources\Avatars\009-ninja.png" />
+    <None Remove="Resources\Avatars\011-boy-18.png" />
     <None Remove="Resources\Avatars\013-boy-16.png" />
+    <None Remove="Resources\Avatars\014-boy-15.png" />
+    <None Remove="Resources\Avatars\016-boy-14.png" />
+    <None Remove="Resources\Avatars\017-birthday.png" />
+    <None Remove="Resources\Avatars\019-girl-5.png" />
     <None Remove="Resources\Avatars\020-girl-4.png" />
+    <None Remove="Resources\Avatars\021-king.png" />
+    <None Remove="Resources\Avatars\022-boy-12.png" />
+    <None Remove="Resources\Avatars\023-costume.png" />
+    <None Remove="Resources\Avatars\024-boy-11.png" />
+    <None Remove="Resources\Avatars\025-boy-10.png" />
     <None Remove="Resources\Avatars\027-boy-8.png" />
     <None Remove="Resources\Avatars\028-girl-3.png" />
+    <None Remove="Resources\Avatars\030-punk.png" />
     <None Remove="Resources\Avatars\031-girl-2.png" />
+    <None Remove="Resources\Avatars\032-girl.png" />
+    <None Remove="Resources\Avatars\033-astronaut.png" />
+    <None Remove="Resources\Avatars\034-vampire.png" />
     <None Remove="Resources\Avatars\035-boy-6.png" />
+    <None Remove="Resources\Avatars\036-viking.png" />
     <None Remove="Resources\Avatars\037-girl-1.png" />
     <None Remove="Resources\Avatars\038-athlete.png" />
+    <None Remove="Resources\Avatars\039-girl.png" />
     <None Remove="Resources\Avatars\040-boy-5.png" />
+    <None Remove="Resources\Avatars\042-sheriff.png" />
+    <None Remove="Resources\Avatars\045-pirate.png" />
+    <None Remove="Resources\Avatars\047-boy-3.png" />
     <None Remove="Resources\Avatars\049-boy-1.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Resources\Avatars\001-girl-10.png" />
+    <EmbeddedResource Include="Resources\Avatars\004-girl-8.png" />
+    <EmbeddedResource Include="Resources\Avatars\005-girl-7.png" />
+    <EmbeddedResource Include="Resources\Avatars\008-girl-6.png" />
+    <EmbeddedResource Include="Resources\Avatars\009-ninja.png" />
+    <EmbeddedResource Include="Resources\Avatars\011-boy-18.png" />
     <EmbeddedResource Include="Resources\Avatars\013-boy-16.png" />
+    <EmbeddedResource Include="Resources\Avatars\014-boy-15.png" />
+    <EmbeddedResource Include="Resources\Avatars\016-boy-14.png" />
+    <EmbeddedResource Include="Resources\Avatars\017-birthday.png" />
+    <EmbeddedResource Include="Resources\Avatars\019-girl-5.png" />
     <EmbeddedResource Include="Resources\Avatars\020-girl-4.png" />
+    <EmbeddedResource Include="Resources\Avatars\021-king.png" />
+    <EmbeddedResource Include="Resources\Avatars\022-boy-12.png" />
+    <EmbeddedResource Include="Resources\Avatars\023-costume.png" />
+    <EmbeddedResource Include="Resources\Avatars\024-boy-11.png" />
+    <EmbeddedResource Include="Resources\Avatars\025-boy-10.png" />
     <EmbeddedResource Include="Resources\Avatars\027-boy-8.png" />
     <EmbeddedResource Include="Resources\Avatars\028-girl-3.png" />
+    <EmbeddedResource Include="Resources\Avatars\030-punk.png" />
     <EmbeddedResource Include="Resources\Avatars\031-girl-2.png" />
+    <EmbeddedResource Include="Resources\Avatars\032-girl.png" />
+    <EmbeddedResource Include="Resources\Avatars\033-astronaut.png" />
+    <EmbeddedResource Include="Resources\Avatars\034-vampire.png" />
     <EmbeddedResource Include="Resources\Avatars\035-boy-6.png" />
+    <EmbeddedResource Include="Resources\Avatars\036-viking.png" />
     <EmbeddedResource Include="Resources\Avatars\037-girl-1.png" />
     <EmbeddedResource Include="Resources\Avatars\038-athlete.png" />
+    <EmbeddedResource Include="Resources\Avatars\039-girl.png" />
     <EmbeddedResource Include="Resources\Avatars\040-boy-5.png" />
+    <EmbeddedResource Include="Resources\Avatars\042-sheriff.png" />
+    <EmbeddedResource Include="Resources\Avatars\045-pirate.png" />
+    <EmbeddedResource Include="Resources\Avatars\047-boy-3.png" />
     <EmbeddedResource Include="Resources\Avatars\049-boy-1.png" />
   </ItemGroup>
 

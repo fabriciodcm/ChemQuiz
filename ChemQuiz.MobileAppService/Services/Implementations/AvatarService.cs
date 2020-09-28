@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ChemQuiz.API.Services.Implementations
 {
-    public class AvatarService : IAvatarService
+    public class AvatarService : IService<Avatar>
     {
 
         private Models.Context.AppContext Context;
@@ -48,7 +48,7 @@ namespace ChemQuiz.API.Services.Implementations
             return result;
         }
 
-        public List<Avatar> FindAll()
+        public IEnumerable<Avatar> FindAll()
         {
             return Context.Avatar.ToList();
         }
@@ -83,5 +83,6 @@ namespace ChemQuiz.API.Services.Implementations
         {
             return Context.Avatar.Any(x => x.AvatarId.Equals(Id));
         }
+
     }
 }

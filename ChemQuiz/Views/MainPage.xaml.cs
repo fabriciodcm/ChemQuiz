@@ -7,6 +7,7 @@ using Xamarin.Forms.Xaml;
 
 using ChemQuiz.Models;
 using Microsoft.Identity.Client;
+using ChemQuiz.Services;
 
 namespace ChemQuiz.Views
 {
@@ -60,6 +61,15 @@ namespace ChemQuiz.Views
 
                 IsPresented = false;
             }
+        }
+
+        protected override async void OnAppearing() 
+        {
+            UserService userService = new UserService(authenticationResult);
+
+            User user = await userService.FindByAuthID(Constants.LoggedUser.AuthId);
+
+            Constants.LoggedUser.Coins = user.Coins;
         }
     }
 }

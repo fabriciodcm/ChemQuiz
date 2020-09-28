@@ -24,7 +24,7 @@ namespace ChemQuiz.Views
             try
             {
                 // Look for existing account
-                 IEnumerable<IAccount> accounts = await App.AuthenticationClient.GetAccountsAsync();
+                /*IEnumerable<IAccount> accounts = await App.AuthenticationClient.GetAccountsAsync();
 
                  AuthenticationResult result = await App.AuthenticationClient
                      .AcquireTokenSilent(Constants.Scopes, accounts.FirstOrDefault())
@@ -43,7 +43,7 @@ namespace ChemQuiz.Views
                     Coins = 200
                 };
 
-                Application.Current.MainPage = new MainPage(null);
+                Application.Current.MainPage = new MainPage(null);*/
 
             }
             catch
@@ -67,47 +67,21 @@ namespace ChemQuiz.Views
                 var jwt = result.IdToken;
                 var handler = new JwtSecurityTokenHandler();
                 var token = handler.ReadJwtToken(jwt);
-                #region Test api authentication
-                try {
-                    var baseAddr = new Uri("https://chemquizapi.azurewebsites.net/");
-                    var client = new HttpClient { BaseAddress = baseAddr };
-
-                    var reviewUri = new Uri(baseAddr, "api/item");
-
-                    var request = new HttpRequestMessage(HttpMethod.Get, reviewUri);
-                    request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", result.AccessToken);
-
-                    var response = await client.SendAsync(request);
-                    //linha abaixo gera erro caso nao retorne na faixa 400
-                    //response.EnsureSuccessStatusCode();
-
-                    var reviewJson = await response.Content.ReadAsStringAsync();
-
-                    //await DisplayAlert("Alert", reviewJson, "OK");
-
-                }
-                catch (Exception ex) {
-                    Debug.WriteLine(ex);
-                }
-
-                #endregion
 
                 Constants.LoggedUser = new User() { 
                     AuthId = token.Claims.ToArray()[8].Value,
                     Name = token.Claims.ToArray()[9].Value,
                     FamilyName = token.Claims.ToArray()[10].Value,
-                    Email = token.Claims.ToArray()[11].Value,
-                    Coins = 200
+                    Email = token.Claims.ToArray()[11].Value
                 };
 
-                Application.Current.MainPage = new MainPage(null);
+                Application.Current.MainPage = new MainPage(result);
             }
             catch (MsalException ex)
             {
                 if (ex.Message != null && ex.Message.Contains("AADB2C90118"))
                 {
                     result = await OnForgotPassword();
-                    //await Navigation.PushAsync(new MainPage(result));
                 }
                 else if (ex.ErrorCode != "authentication_canceled")
                 {
@@ -116,11 +90,6 @@ namespace ChemQuiz.Views
             }
         }
 
-        async void OnEntrarTesteButtonClicked(object sender, EventArgs e) {
-            Application.Current.MainPage = new MainPage(null);
-            //await (Application.Current.MainPage as MasterDetailPage)
-            //    .Detail.Navigation.PushAsync(new ItemsPage());
-        }
         async Task<AuthenticationResult> OnForgotPassword()
         {
             try

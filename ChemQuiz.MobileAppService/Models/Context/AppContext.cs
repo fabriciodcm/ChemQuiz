@@ -34,5 +34,6 @@ namespace ChemQuiz.API.Models.Context
 
         public DbSet<Avatar> Avatar { get; set; }
         public DbSet<AppUser> AppUser { get; set; }
+        public DbSet<Category> Category { get; set; }
     }
 }

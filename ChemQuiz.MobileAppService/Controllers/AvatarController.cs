@@ -14,9 +14,9 @@ namespace ChemQuiz.API.Controllers
     public class AvatarController : Controller
     {
 
-        private IAvatarService avatarService;
+        private IService<Avatar> avatarService;
 
-        public AvatarController(IAvatarService _avatarService)
+        public AvatarController(IService<Avatar> _avatarService)
         {
             avatarService = _avatarService;
         }

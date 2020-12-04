@@ -7,7 +7,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using ChemQuez.Models;
 using Microsoft.AspNetCore.Authentication.AzureADB2C.UI;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.EntityFrameworkCore;
@@ -38,8 +37,8 @@ namespace ChemQuez.MobileAppService
             services.AddAuthentication(AzureADB2CDefaults.BearerAuthenticationScheme)
                 .AddAzureADB2CBearer(options => Configuration.Bind("AzureAdB2C", options));
             services.AddControllers();
-            services.AddSingleton<IItemRepository, ItemRepository>();
             services.AddScoped<IService<Avatar>, AvatarService>();
+            services.AddScoped<IService<Category>, CategoryService>();
             services.AddScoped<IAppUserService, AppUserService>();
         }
 

@@ -51,7 +51,7 @@ namespace ChemQuiz.ViewModels
             ranking.Add(new Ranking()
             {
                 User = new User(){
-                    Name = "João Paulo",
+                    UserName = "João Paulo",
                     Avatar = new Avatar() {
                         AvatarName = "013-boy-16.png"
                     }
@@ -63,7 +63,7 @@ namespace ChemQuiz.ViewModels
             {
                 User = new User()
                 {
-                    Name = "Maria Clara",
+                    UserName = "Maria Clara",
                     Avatar = new Avatar()
                     {
                         AvatarName = "020-girl-4.png"
@@ -76,7 +76,7 @@ namespace ChemQuiz.ViewModels
             {
                 User = new User()
                 {
-                    Name = "Fabricio",
+                    UserName = "Fabricio",
                     Avatar = new Avatar()
                     {
                         AvatarName = "027-boy-8.png"

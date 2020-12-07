@@ -1,5 +1,7 @@
 ﻿using ChemQuiz.Models;
 using Microsoft.Identity.Client;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -8,6 +10,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Security;
+using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -21,90 +24,47 @@ namespace ChemQuiz.Views
 
         protected override async void OnAppearing()
         {
-            try
-            {
-                // Look for existing account
-                /*IEnumerable<IAccount> accounts = await App.AuthenticationClient.GetAccountsAsync();
-
-                 AuthenticationResult result = await App.AuthenticationClient
-                     .AcquireTokenSilent(Constants.Scopes, accounts.FirstOrDefault())
-                     .ExecuteAsync();
-
-                 var jwt = result.IdToken;
-                 var handler = new JwtSecurityTokenHandler();
-                 var token = handler.ReadJwtToken(jwt);
-
-                Constants.LoggedUser = new User()
-                {
-                    AuthId = token.Claims.ToArray()[8].Value,
-                    Name = token.Claims.ToArray()[9].Value,
-                    FamilyName = token.Claims.ToArray()[10].Value,
-                    Email = token.Claims.ToArray()[11].Value,
-                    Coins = 200
-                };
-
-                Application.Current.MainPage = new MainPage(null);*/
-
-            }
-            catch
-            {
-                // Do nothing - the user isn't logged in
-            }
             base.OnAppearing();
         }
 
+        //https://techcommunity.microsoft.com/t5/microsoft-mvp-award-program-blog/implementing-signin-and-signup-with-xamarin-forms-and-asp-net/ba-p/428586
         async void OnEntrarButtonClicked(object sender, EventArgs e)
         {
-            AuthenticationResult result;
             try
             {
-                result = await App.AuthenticationClient
-                    .AcquireTokenInteractive(Constants.Scopes)
-                    .WithPrompt(Prompt.SelectAccount)
-                    .WithParentActivityOrWindow(App.UIParent)
-                    .ExecuteAsync();
-
-                var jwt = result.IdToken;
-                var handler = new JwtSecurityTokenHandler();
-                var token = handler.ReadJwtToken(jwt);
-
-                Constants.LoggedUser = new User() { 
-                    AuthId = token.Claims.ToArray()[8].Value,
-                    Name = token.Claims.ToArray()[9].Value,
-                    FamilyName = token.Claims.ToArray()[10].Value,
-                    Email = token.Claims.ToArray()[11].Value
+                
+                var client = new HttpClient();
+                var LoginModel = new
+                {
+                    Email = Email.Text,
+                    Password = Password.Text,
                 };
-
-                Application.Current.MainPage = new MainPage(result);
-            }
-            catch (MsalException ex)
-            {
-                if (ex.Message != null && ex.Message.Contains("AADB2C90118"))
+                var jsonObject = JsonConvert.SerializeObject(LoginModel);
+                var content = new StringContent(jsonObject.ToString(), Encoding.UTF8, "application/json");
+                var response = await client.PostAsync((Constants.URL + "Authenticate/login"), content);
+                if (response.IsSuccessStatusCode)
                 {
-                    result = await OnForgotPassword();
-                }
-                else if (ex.ErrorCode != "authentication_canceled")
-                {
-                    await DisplayAlert("An error has occurred", "Exception message: " + ex.Message, "Dismiss");
-                }
-            }
-        }
+                    var result = await response.Content.ReadAsStringAsync();
+                    JObject jwtDynamic = JsonConvert.DeserializeObject<dynamic>(result);
+                    var accessToken = jwtDynamic.Value<string>("token");
+                    DateTime expiration = jwtDynamic.Value<DateTime>("expiration");
+                    var jsonUser = jwtDynamic.Value<object>("appuser");
+                    var user = JsonConvert.DeserializeObject<User>(jsonUser.ToString());
+                    
+                    var jwt = accessToken;
+                    var handler = new JwtSecurityTokenHandler();
+                    var token = handler.ReadJwtToken(jwt);
 
-        async Task<AuthenticationResult> OnForgotPassword()
-        {
-            try
-            {
-                return await App.AuthenticationClient
-                    .AcquireTokenInteractive(Constants.Scopes)
-                    .WithPrompt(Prompt.SelectAccount)
-                    .WithParentActivityOrWindow(App.UIParent)
-                    .WithB2CAuthority(Constants.AuthorityPasswordReset)
-                    .ExecuteAsync();
+                    Session.loggedUser = user;
+                    Session.accessToken = accessToken;
+                    Session.sessionExpiretion = expiration;
+
+                    Application.Current.MainPage = new MainPage();
+                }
             }
-            catch (MsalException)
+            catch (Exception ex)
             {
-                // Do nothing - ErrorCode will be displayed in OnLoginButtonClicked
-                return null;
+                await DisplayAlert("An error has occurred", "Exception message: " + ex.Message, "Dismiss");
             }
         }
     }

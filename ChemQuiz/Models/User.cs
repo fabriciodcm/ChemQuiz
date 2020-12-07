@@ -7,14 +7,9 @@ namespace ChemQuiz.Models
 {
     public class User
     {
-        public long UserId { get; set; }
-        public string AuthId { get; set; }
+        public string Id { get; set; }
         public long Coins { get; set; }
-        [JsonIgnore]
-        public string Name { get; set; }
-        [JsonIgnore]
-        public string FamilyName { get; set; }
-        [JsonIgnore]
+        public string UserName { get; set; }
         public string Email { get; set; }
         [JsonIgnore]
         public Avatar Avatar { get; set; }

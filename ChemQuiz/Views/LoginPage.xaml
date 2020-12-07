@@ -37,8 +37,9 @@
                     LeadingIconTintColor="White"
                     TintColor="White"
                     BackgroundColor="Transparent"
-                    IsVisible="False"/>
-                <Material:MaterialTextField 
+                    IsVisible="True"
+                    x:Name="Email"/>
+                <Material:MaterialTextField
                     Placeholder="Senha"
                     Margin="0,-20,0,0"
                     VerticalOptions="Center"
@@ -50,7 +51,8 @@
                     LeadingIconTintColor="White"
                     TintColor="White"
                     BackgroundColor="Transparent"
-                    IsVisible="False"/>
+                    IsVisible="True"
+                    x:Name="Password"/>
                 <StackLayout HorizontalOptions="End" Padding="10"  Margin="0,-22,5,0">
                     <Label Text="Esqueceu sua senha?"
                            TextColor="White"

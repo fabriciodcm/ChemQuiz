@@ -17,8 +17,8 @@ namespace ChemQuiz.Views
     public partial class MainPage : MasterDetailPage
     {
         Dictionary<int, NavigationPage> MenuPages = new Dictionary<int, NavigationPage>();
-        AuthenticationResult authenticationResult;
-        public MainPage(AuthenticationResult authenticationResult)
+
+        public MainPage()
         {
             InitializeComponent();
 
@@ -26,7 +26,6 @@ namespace ChemQuiz.Views
 
             MenuPages.Add((int)MenuItemType.Browse, (NavigationPage)Detail);
 
-            this.authenticationResult = authenticationResult;
         }
 
         public async Task NavigateFromMenu(int id)
@@ -65,11 +64,11 @@ namespace ChemQuiz.Views
 
         protected override async void OnAppearing() 
         {
-            UserService userService = new UserService(authenticationResult);
+            //UserService userService = new UserService(authenticationResult);
 
-            User user = await userService.FindByAuthID(Constants.LoggedUser.AuthId);
+            //User user = await userService.FindByAuthID(Constants.LoggedUser.AuthId);
 
-            Constants.LoggedUser.Coins = user.Coins;
+            //Constants.LoggedUser.Coins = user.Coins;
         }
     }
 }

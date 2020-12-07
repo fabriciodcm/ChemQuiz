@@ -67,7 +67,6 @@ namespace ChemQuiz.Services
                     var newUser = new User()
                     {
                         Coins = 200,
-                        AuthId = Constants.LoggedUser.AuthId,
                     };
                     string json = JsonConvert.SerializeObject(newUser);
                     StringContent strcontent = new StringContent(json, Encoding.UTF8, "application/json");
